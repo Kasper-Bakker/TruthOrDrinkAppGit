@@ -1,0 +1,30 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrinkApp.RegisterPage"
+             Title="Registreren">
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Gebruikersnaam:" />
+        <Entry Placeholder="Gebruikersnaam" />
+
+        <Label Text="E-mail:" />
+        <Entry Placeholder="E-mail" Keyboard="Email" />
+
+        <Label Text="Wachtwoord:" />
+        <Entry Placeholder="Wachtwoord" IsPassword="True" />
+
+        <Label Text="Wachtwoord bevestigen:" />
+        <Entry Placeholder="Wachtwoord bevestigen" IsPassword="True" />
+
+        <HorizontalStackLayout>
+            <CheckBox x:Name="AgeCheckBox" />
+            <Label Text="Leeftijd bevestigen (18+)" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <CheckBox x:Name="TermsCheckBox" />
+            <Label Text="Algemene voorwaarden accepteren" />
+        </HorizontalStackLayout>
+
+        <Button Text="Account aanmaken" BackgroundColor="LightBlue" TextColor="White" Clicked="OnAccountAanmakenClicked" />
+    </VerticalStackLayout>
+</ContentPage>
