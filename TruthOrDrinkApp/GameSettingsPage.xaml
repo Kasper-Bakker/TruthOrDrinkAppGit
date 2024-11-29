@@ -1,0 +1,33 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrinkApp.GameSettingsPage"
+             Title="Game Instellingen">
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Game instellingen" 
+               FontSize="24" 
+               HorizontalTextAlignment="Center" 
+               FontAttributes="Bold" />
+
+        <Label Text="Kies soort vragen:" 
+               FontSize="16" 
+               HorizontalTextAlignment="Start" />
+
+        <Label Text="Kies moeilijkheidsgraad:" 
+               FontSize="16" 
+               HorizontalTextAlignment="Start" />
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label x:Name="Star1" Text="★" FontSize="30" TextColor="Gray" />
+            <Label x:Name="Star2" Text="★" FontSize="30" TextColor="Gray" />
+            <Label x:Name="Star3" Text="★" FontSize="30" TextColor="Gray" />
+            <Label x:Name="Star4" Text="★" FontSize="30" TextColor="Gray" />
+            <Label x:Name="Star5" Text="★" FontSize="30" TextColor="Gray" />
+        </HorizontalStackLayout>
+
+        <Button Text="Volgende" 
+                BackgroundColor="LightBlue" 
+                TextColor="White" 
+                HorizontalOptions="Center"
+                Clicked="OnVolgendeClicked" />
+    </VerticalStackLayout>
+</ContentPage>

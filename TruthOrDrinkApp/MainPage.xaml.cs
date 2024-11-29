@@ -11,7 +11,18 @@ namespace TruthOrDrinkApp
 
 		private async void OnLoginClicked(object sender, EventArgs e)
 		{
-			await DisplayAlert("Login", "Succesvol ingelogd!", "OK");
+			bool isLoginSuccessful = true; 
+
+			if (isLoginSuccessful)
+			{
+				await DisplayAlert("Login", "Succesvol ingelogd!", "OK");
+
+				await Navigation.PushAsync(new HomePage());
+			}
+			else
+			{
+				await DisplayAlert("Login", "Onjuiste gebruikersnaam of wachtwoord.", "OK");
+			}
 		}
 
 		private async void OnRegisterClicked(object sender, EventArgs e)

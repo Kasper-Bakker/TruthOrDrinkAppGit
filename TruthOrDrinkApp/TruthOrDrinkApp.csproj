@@ -65,6 +65,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="AddQuestionsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="GameSettingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="LoginSavePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

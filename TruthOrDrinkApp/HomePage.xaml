@@ -1,0 +1,32 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrinkApp.HomePage"
+             Title="Home">
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        <HorizontalStackLayout HorizontalOptions="End" VerticalOptions="Start">
+            <Button Text="👤" FontSize="18" BackgroundColor="Transparent" />
+        </HorizontalStackLayout>
+
+
+        <Label Text="Welkom bij: Truth Or Drink!" 
+               FontSize="24" 
+               HorizontalTextAlignment="Center" />
+
+
+        <Label Text="-Spelomschrijving-" 
+               FontAttributes="Bold" 
+               HorizontalTextAlignment="Center" />
+
+        <Button Text="Vragen toevoegen" 
+                BackgroundColor="LightBlue" 
+                TextColor="White" 
+                HorizontalOptions="Center"
+                Clicked="OnVragenToevoegenClicked" />
+        <Button Text="Start game" 
+                BackgroundColor="LightBlue" 
+                TextColor="White" 
+                HorizontalOptions="Center"
+                Clicked="OnStartGameClicked" />
+    </VerticalStackLayout>
+</ContentPage>
