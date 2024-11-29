@@ -7,9 +7,31 @@
     Shell.FlyoutBehavior="Flyout"
     Title="TruthOrDrinkApp">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:LoginPage}"
-        Route="MainPage" />
+    <Shell.FlyoutHeader>
+        <StackLayout BackgroundColor="LightBlue" Padding="20">
+            <Label Text="Welcome!" FontSize="24" TextColor="White" HorizontalOptions="Center" />
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Home" Icon="home_icon.png">
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:HomePage}"
+            Route="HomePage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Settings" Icon="settings_icon.png">
+        <ShellContent
+            Title="Settings"
+            ContentTemplate="{DataTemplate local:SettingsPage}"
+            Route="SettingsPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="About" Icon="about_icon.png">
+        <ShellContent
+            Title="About"
+            ContentTemplate="{DataTemplate local:AboutPage}"
+            Route="AboutPage" />
+    </FlyoutItem>
 
 </Shell>
