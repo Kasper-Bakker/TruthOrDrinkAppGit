@@ -4,11 +4,6 @@
              Title="Home">
     <VerticalStackLayout Padding="20" Spacing="10">
 
-        <HorizontalStackLayout HorizontalOptions="End" VerticalOptions="Start">
-            <Button Text="👤" FontSize="18" BackgroundColor="Transparent" />
-        </HorizontalStackLayout>
-
-
         <Label Text="Welkom bij: Truth Or Drink!" 
                FontSize="24" 
                HorizontalTextAlignment="Center" />

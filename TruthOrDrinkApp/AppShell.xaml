@@ -20,6 +20,20 @@
             Route="HomePage" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Account" Icon="account_icon.png">
+        <ShellContent
+            Title="Account"
+            ContentTemplate="{DataTemplate local:AccountPage}"
+            Route="AccountPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Friends" Icon="friends_icon.png">
+        <ShellContent
+            Title="Friends"
+            ContentTemplate="{DataTemplate local:FriendlistPage}"
+            Route="FFriendlistPage" />
+    </FlyoutItem>
+
     <FlyoutItem Title="Settings" Icon="settings_icon.png">
         <ShellContent
             Title="Settings"

@@ -14,6 +14,7 @@ namespace TruthOrDrinkApp
 				{
 					fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 					fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+					fonts.AddFont("truthordrinksplash.png", "SplashFont");
 				});
 
 #if DEBUG
