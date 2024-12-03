@@ -50,6 +50,7 @@ namespace TruthOrDrinkApp
 			Star5.TextColor = SelectedDifficulty >= 5 ? Colors.Gold : Colors.Gray;
 		}
 		private void OnCategoryChanged(object sender, CheckedChangedEventArgs e) { }
+		private void OnPhoneChoiseChanged(object sender, CheckedChangedEventArgs e) { }
 		private async void OnVolgendeClicked(object sender, EventArgs e)
 		{
 			await DisplayAlert("Instellingen","Instellingen opgeslagen.", "OK");
