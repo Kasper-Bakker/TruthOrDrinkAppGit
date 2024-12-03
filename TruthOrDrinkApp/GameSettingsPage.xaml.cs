@@ -18,12 +18,11 @@ namespace TruthOrDrinkApp
 				}
 			}
 		}
-
+		
 		public GameSettingsPage()
 		{
 			InitializeComponent();
 			BindingContext = this;
-			SelectedDifficulty = 1;
 		}
 
 		private void OnQuestionTypeChanged(object sender, EventArgs e)
@@ -35,6 +34,7 @@ namespace TruthOrDrinkApp
 				Console.WriteLine($"Geselecteerde soort vraag: {selectedQuestionType}");
 			}
 		}
+
 
 		private void OnSliderValueChanged(object sender, ValueChangedEventArgs e)
 		{
@@ -52,8 +52,25 @@ namespace TruthOrDrinkApp
 		private void OnCategoryChanged(object sender, CheckedChangedEventArgs e) { }
 		private void OnPhoneChoiseChanged(object sender, CheckedChangedEventArgs e) { }
 		private async void OnVolgendeClicked(object sender, EventArgs e)
+
+
 		{
 			await DisplayAlert("Instellingen","Instellingen opgeslagen.", "OK");
 		}
+
+		private string GenerateRandomCode()
+		{
+			Random random = new Random();
+			int part1 = random.Next(100, 1000);
+			int part2 = random.Next(100, 1000);
+			return $"C-{part1}-{part2}";
+		}
+
+		private void OnGenerateCodeClicked(object sender, EventArgs e)
+		{
+			string randomCode = GenerateRandomCode();
+		}
 	}
 }
+	
+
