@@ -13,16 +13,55 @@
                FontSize="16" 
                HorizontalTextAlignment="Start" />
 
+        <Picker x:Name="QuestionTypePicker"
+                Title="Selecteer soort vragen"
+                SelectedIndexChanged="OnQuestionTypeChanged">
+            <Picker.Items>
+                <x:String>Voorgestelde vragen</x:String>
+                <x:String>Gepersonaliseerde vragen</x:String>
+                <x:String>Combinatie van beide</x:String>
+            </Picker.Items>
+        </Picker>
+
         <Label Text="Kies moeilijkheidsgraad:" 
                FontSize="16" 
                HorizontalTextAlignment="Start" />
         <HorizontalStackLayout HorizontalOptions="Center">
-            <Label x:Name="Star1" Text="★" FontSize="30" TextColor="Gray" />
-            <Label x:Name="Star2" Text="★" FontSize="30" TextColor="Gray" />
-            <Label x:Name="Star3" Text="★" FontSize="30" TextColor="Gray" />
-            <Label x:Name="Star4" Text="★" FontSize="30" TextColor="Gray" />
-            <Label x:Name="Star5" Text="★" FontSize="30" TextColor="Gray" />
+            <Label x:Name="Star1" Text="★" FontSize="30" TextColor="{Binding Star1Color}" />
+            <Label x:Name="Star2" Text="★" FontSize="30" TextColor="{Binding Star2Color}" />
+            <Label x:Name="Star3" Text="★" FontSize="30" TextColor="{Binding Star3Color}" />
+            <Label x:Name="Star4" Text="★" FontSize="30" TextColor="{Binding Star4Color}" />
+            <Label x:Name="Star5" Text="★" FontSize="30" TextColor="{Binding Star5Color}" />
         </HorizontalStackLayout>
+        <Slider x:Name="DifficultySlider" 
+                Minimum="1" 
+                Maximum="5" 
+                Value="1" 
+                ValueChanged="OnSliderValueChanged" />
+
+        <Label Text="Kies de categorie vragen:"                
+               FontSize="16" 
+               HorizontalTextAlignment="Start" />
+
+        <StackLayout>
+            <RadioButton x:Name="Category1RadioButton" 
+                         GroupName="Categories"
+                         Content="First Round: Vragen om op een vriendelijke manier kennis te maken"
+                         CheckedChanged="OnCategoryChanged" />
+            <RadioButton x:Name="Category2RadioButton" 
+                         GroupName="Categories"
+                         Content="Getting Real: Persoonlijkere vragen die geschikt zijn voor goede vrienden en net dat beetje extra diepgang bieden."
+                         CheckedChanged="OnCategoryChanged" />
+            <RadioButton x:Name="Category3RadioButton" 
+                         GroupName="Categories"
+                         Content="Deep Dive: Diepgaande vragen bedoeld voor je meest hechte en intieme vriendschappen."
+                         CheckedChanged="OnCategoryChanged" />
+            <RadioButton x:Name="Category4RadioButton" 
+                         GroupName="Categories"
+                         Content="Extra Spicy: Zeer pikante en expliciete vragen die je meer laten ontdekken dan je misschien zou willen."
+                         CheckedChanged="OnCategoryChanged" />
+        </StackLayout>
+
 
         <Button Text="Volgende" 
                 HorizontalOptions="Center"
