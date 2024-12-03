@@ -8,8 +8,8 @@
     Title="TruthOrDrinkApp">
 
     <Shell.FlyoutHeader>
-        <StackLayout BackgroundColor="LightBlue" Padding="20">
-            <Label Text="Welcome!" FontSize="24" TextColor="White" HorizontalOptions="Center" />
+        <StackLayout  Padding="20">
+            <Label Text="Welcome!" FontSize="24" HorizontalOptions="Center" />
         </StackLayout>
     </Shell.FlyoutHeader>
 
@@ -27,23 +27,23 @@
             Route="AccountPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Friends" Icon="friends_icon.png">
+    <FlyoutItem Title="Vrienden" Icon="friends_icon.png">
         <ShellContent
-            Title="Friends"
+            Title="Vrienden"
             ContentTemplate="{DataTemplate local:FriendlistPage}"
-            Route="FFriendlistPage" />
+            Route="FriendlistPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Settings" Icon="settings_icon.png">
+    <FlyoutItem Title="Instellingen" Icon="settings_icon.png">
         <ShellContent
-            Title="Settings"
+            Title="Instellingen"  
             ContentTemplate="{DataTemplate local:SettingsPage}"
             Route="SettingsPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="About" Icon="about_icon.png">
+    <FlyoutItem Title="Info" Icon="about_icon.png">
         <ShellContent
-            Title="About"
+            Title="Info"
             ContentTemplate="{DataTemplate local:AboutPage}"
             Route="AboutPage" />
     </FlyoutItem>

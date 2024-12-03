@@ -16,6 +16,6 @@
             <Label Text="Nee" />
         </HorizontalStackLayout>
 
-        <Button Text="Login" BackgroundColor="LightBlue" TextColor="White" Clicked="OnLoginClicked" />
+        <Button Text="Login" Clicked="OnLoginClicked" />
     </VerticalStackLayout>
 </ContentPage>

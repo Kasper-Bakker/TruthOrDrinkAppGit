@@ -25,6 +25,6 @@
             <Label Text="Algemene voorwaarden accepteren" />
         </HorizontalStackLayout>
 
-        <Button Text="Account aanmaken" BackgroundColor="LightBlue" TextColor="White" Clicked="OnAccountAanmakenClicked" />
+        <Button Text="Account aanmaken" Clicked="OnAccountAanmakenClicked" />
     </VerticalStackLayout>
 </ContentPage>

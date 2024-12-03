@@ -14,13 +14,9 @@
                HorizontalTextAlignment="Center" />
 
         <Button Text="Vragen toevoegen" 
-                BackgroundColor="LightBlue" 
-                TextColor="White" 
                 HorizontalOptions="Center"
                 Clicked="OnVragenToevoegenClicked" />
         <Button Text="Start game" 
-                BackgroundColor="LightBlue" 
-                TextColor="White" 
                 HorizontalOptions="Center"
                 Clicked="OnStartGameClicked" />
     </VerticalStackLayout>

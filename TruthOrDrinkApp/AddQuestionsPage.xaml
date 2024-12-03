@@ -32,8 +32,6 @@
         </HorizontalStackLayout>
 
         <Button Text="Vraag opslaan" 
-                BackgroundColor="LightBlue" 
-                TextColor="White" 
                 HorizontalOptions="Center"
                 Clicked="OnVraagOpslaanClicked" />
     </VerticalStackLayout>

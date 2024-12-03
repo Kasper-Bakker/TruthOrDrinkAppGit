@@ -14,8 +14,8 @@
         <Label Text="Wachtwoord vergeten?" TextColor="Blue" HorizontalOptions="End" />
 
         <HorizontalStackLayout Spacing="10">
-            <Button Text="Login" BackgroundColor="LightBlue" TextColor="White" Clicked="OnLoginClicked" />
-            <Button Text="Registreren" BackgroundColor="LightBlue" TextColor="White" Clicked="OnRegisterClicked" />
+            <Button Text="Login" Clicked="OnLoginClicked" />
+            <Button Text="Registreren" Clicked="OnRegisterClicked" />
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
