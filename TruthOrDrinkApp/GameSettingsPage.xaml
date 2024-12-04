@@ -87,13 +87,13 @@
             <Button Text="Genereer Code"
                 Clicked="OnGenerateCodeClicked"
                 HorizontalOptions="Center"
-                VerticalOptions="Center" />
+                VerticalOptions="Start" />
             
             <Label x:Name="RandomCodeLabel"
                Text="Code wordt hier weergegeven..."
                FontSize="18"
                HorizontalOptions="Center"
-               VerticalOptions="Center" />
+               VerticalOptions="End" />
 
             <Button Text="Start game" 
                     HorizontalOptions="Center"

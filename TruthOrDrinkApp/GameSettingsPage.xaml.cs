@@ -66,11 +66,15 @@ namespace TruthOrDrinkApp
 			return $"C-{part1}-{part2}";
 		}
 
-		private void OnGenerateCodeClicked(object sender, EventArgs e)
+		private async void OnGenerateCodeClicked(object sender, EventArgs e)
 		{
 			string randomCode = GenerateRandomCode();
+			RandomCodeLabel.Text = randomCode;
 		}
+
+
 	}
 }
+
 	
 
