@@ -1,0 +1,66 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrinkApp.GameConfirmPage"
+             Title="Bevestiging Instellingen">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Game Instellingen Bevestigen"
+                   FontSize="24" 
+                   HorizontalTextAlignment="Center" 
+                   FontAttributes="Bold" />
+
+            <Label Text="Soort vragen:"
+                   FontSize="16" 
+                   HorizontalTextAlignment="Start" />
+            <Label x:Name="QuestionTypeLabel"
+                   FontSize="18"
+                   HorizontalTextAlignment="Start" />
+
+            <Label Text="Moeilijkheidsgraad:"
+                   FontSize="16" 
+                   HorizontalTextAlignment="Start" />
+            <Label x:Name="DifficultyLabel"
+                   FontSize="18"
+                   HorizontalTextAlignment="Start" />
+
+            <Label Text="Categorie:"
+                   FontSize="16" 
+                   HorizontalTextAlignment="Start" />
+            <Label x:Name="CategoryLabel"
+                   FontSize="18"
+                   HorizontalTextAlignment="Start" />
+
+            <Label Text="Spelen op telefoons van alle spelers:"
+                   FontSize="16" 
+                   HorizontalTextAlignment="Start" />
+            <Label x:Name="PhoneChoiceLabel"
+                   FontSize="18"
+                   HorizontalTextAlignment="Start" />
+
+            <Button Text="Vrienden uitnodigen" 
+                    HorizontalOptions="EndAndExpand" 
+                    Clicked="OnInviteFriendsClicked" />
+
+            <Label Text="Spelers kunnen eventueel vragen toevoegen met deze code:" 
+               FontSize="16" 
+               HorizontalTextAlignment="Start" />
+
+            <Button Text="Genereer Code"
+                Clicked="OnGenerateCodeClicked"
+                HorizontalOptions="Center"
+                VerticalOptions="Start" />
+
+            <Label x:Name="RandomCodeLabel"
+               Text="Code wordt hier weergegeven..."
+               FontSize="18"
+               HorizontalOptions="Center"
+               VerticalOptions="End" />
+
+            <Button Text="Start Game" 
+                    HorizontalOptions="Center" 
+                    Clicked="OnStartGameClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

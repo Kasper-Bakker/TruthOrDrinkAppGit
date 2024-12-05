@@ -79,23 +79,8 @@
                  Content="Nee"
                  CheckedChanged="OnPhoneChoiseChanged" />
         </StackLayout>
-        
-            <Label Text="Spelers kunnen eventueel vragen toevoegen met deze code:" 
-               FontSize="16" 
-               HorizontalTextAlignment="Start" />
-        
-            <Button Text="Genereer Code"
-                Clicked="OnGenerateCodeClicked"
-                HorizontalOptions="Center"
-                VerticalOptions="Start" />
-            
-            <Label x:Name="RandomCodeLabel"
-               Text="Code wordt hier weergegeven..."
-               FontSize="18"
-               HorizontalOptions="Center"
-               VerticalOptions="End" />
 
-            <Button Text="Start game" 
+            <Button Text="Spelgegevens opslaan" 
                     HorizontalOptions="Center"
                     Clicked="OnVolgendeClicked" />
 

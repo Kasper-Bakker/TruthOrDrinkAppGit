@@ -51,25 +51,10 @@ namespace TruthOrDrinkApp
 		}
 		private void OnCategoryChanged(object sender, CheckedChangedEventArgs e) { }
 		private void OnPhoneChoiseChanged(object sender, CheckedChangedEventArgs e) { }
+		
 		private async void OnVolgendeClicked(object sender, EventArgs e)
-
-
 		{
-			await DisplayAlert("Instellingen","Instellingen opgeslagen.", "OK");
-		}
-
-		private string GenerateRandomCode()
-		{
-			Random random = new Random();
-			int part1 = random.Next(100, 1000);
-			int part2 = random.Next(100, 1000);
-			return $"C-{part1}-{part2}";
-		}
-
-		private async void OnGenerateCodeClicked(object sender, EventArgs e)
-		{
-			string randomCode = GenerateRandomCode();
-			RandomCodeLabel.Text = randomCode;
+			await Navigation.PushAsync(new GameConfirmPage());
 		}
 
 
