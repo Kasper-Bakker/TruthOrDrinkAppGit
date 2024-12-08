@@ -46,7 +46,7 @@
 		<MauiIcon Include="Resources\AppIcon\truthordrinkicon.png" ForegroundFile="Resources\AppIcon\truthordrinkicon.png" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\truthordrinksplash.png" resize="true" />
+		<MauiSplashScreen Include="Resources\Splash\truthordrinksplash.png" Resize="True" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />

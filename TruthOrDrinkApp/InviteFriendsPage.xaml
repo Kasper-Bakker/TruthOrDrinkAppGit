@@ -7,14 +7,13 @@
     <VerticalStackLayout>
         <Label 
             Text="Scan deze QR-code om aan het spel deel te nemen:"
+            FontSize="18"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
         <Image Source="truthordrinkqr.png" 
-               VerticalOptions="Center" 
-               HorizontalOptions="Center" 
-               HeightRequest="300" 
-               WidthRequest="300" />
+               VerticalOptions="CenterAndExpand" 
+               HorizontalOptions="EndAndExpand" />
 
 
     </VerticalStackLayout>
