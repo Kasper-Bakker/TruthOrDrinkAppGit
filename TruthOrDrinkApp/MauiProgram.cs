@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using TruthOrDrinkApp.Repositories;
 
 namespace TruthOrDrinkApp
 {
@@ -16,7 +17,7 @@ namespace TruthOrDrinkApp
 					fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 					fonts.AddFont("truthordrinksplash.png", "SplashFont");
 				});
-
+			builder.Services.AddSingleton<UserRepository>();
 #if DEBUG
 			builder.Logging.AddDebug();
 #endif

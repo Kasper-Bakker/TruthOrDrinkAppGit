@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruthOrDrinkApp.MVVM.Views.MainPage"
+             xmlns:local="clr-namespace:TruthOrDrinkApp.MVVM.ViewModels">
+    <ScrollView>
+        <Grid RowDefinitions="*, 2*">
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Entry Placeholder="Name" Text="{Binding CurrentStudent.Name}" />
+                <Entry Placeholder="Address" Text="{Binding CurrentStudent.Email}" />
+                <Button Text="Add or Update"
+                    Command="{Binding AddOrUpdateCommand}" />
+            </VerticalStackLayout>
+
+            <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Students}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding CurrentStudent}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Delete"
+                                           BackgroundColor="Red"
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainPageViewModel}}, Path=DeleteCommand}" />
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+
+                            <Grid ColumnDefinitions="*, *">
+                                <Label Text="{Binding Name}" Grid.Column="0" />
+                                <Label Text="{Binding Email}" Grid.Column="1" />
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
+
+
+</ContentView>
