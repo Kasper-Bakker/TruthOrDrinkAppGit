@@ -14,17 +14,18 @@
                FontSize="16" 
                HorizontalTextAlignment="Start" />
 
-        <Picker x:Name="QuestionTypePicker"
-                Title="Selecteer soort vragen"
-                SelectedIndexChanged="OnQuestionTypeChanged">
-            <Picker.Items>
-                <x:String>Voorgestelde vragen</x:String>
-                <x:String>Gepersonaliseerde vragen</x:String>
-                <x:String>Combinatie van beide</x:String>
-            </Picker.Items>
-        </Picker>
+            <Picker x:Name="QuestionTypePicker"
+        Title="Selecteer soort vragen"
+        SelectedIndexChanged="OnQuestionTypeChanged">
+                <Picker.Items>
+                    <x:String>Voorgestelde vragen</x:String>
+                    <x:String>Gepersonaliseerde vragen</x:String>
+                    <x:String>Combinatie van beide</x:String>
+                </Picker.Items>
+            </Picker>
 
-        <Label Text="Kies moeilijkheidsgraad:" 
+
+            <Label Text="Kies moeilijkheidsgraad:" 
                FontSize="16" 
                HorizontalTextAlignment="Start" />
         <HorizontalStackLayout HorizontalOptions="Center">
@@ -70,15 +71,16 @@
                HorizontalTextAlignment="Start" />
         
         <StackLayout>
-            <RadioButton x:Name="PhoneChoise" 
-                 GroupName="PhoneChoises"
-                 Content="Ja"
-                 CheckedChanged="OnPhoneChoiseChanged" />
-            <RadioButton x:Name="PhoneChoise2" 
-                 GroupName="PhoneChoises"
-                 Content="Nee"
-                 CheckedChanged="OnPhoneChoiseChanged" />
-        </StackLayout>
+                <RadioButton x:Name="PhoneChoise" 
+             GroupName="PhoneChoises"
+             Content="Ja"
+             CheckedChanged="OnPhoneChoiceChanged" />
+                <RadioButton x:Name="PhoneChoise2" 
+             GroupName="PhoneChoises"
+             Content="Nee"
+             CheckedChanged="OnPhoneChoiceChanged" />
+
+            </StackLayout>
 
             <Button Text="Spelgegevens opslaan" 
                     HorizontalOptions="Center"

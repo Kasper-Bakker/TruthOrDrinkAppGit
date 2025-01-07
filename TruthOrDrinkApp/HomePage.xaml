@@ -19,5 +19,7 @@
         <Button Text="Start game" 
                 HorizontalOptions="Center"
                 Clicked="OnStartGameClicked" />
+        <Button Text="Open Database Browser"
+                Clicked="OpenDatabaseBrowser" />
     </VerticalStackLayout>
 </ContentPage>

@@ -1,65 +1,88 @@
-using Microsoft.Maui.Controls;
-
-namespace TruthOrDrinkApp
+namespace TruthOrDrinkApp;
+public partial class GameSettingsPage : ContentPage
 {
-	public partial class GameSettingsPage : ContentPage
+	public string SelectedQuestionType { get; set; }
+	public string SelectedDifficulty { get; set; }
+	public string SelectedCategory { get; set; }
+	public string PhoneChoice { get; set; }
+	public string GeneratedCode { get; set; } 
+
+	public GameSettingsPage()
 	{
-		private int _selectedDifficulty;
+		InitializeComponent();
+		BindingContext = this;
 
-		public int SelectedDifficulty
-		{
-			get => _selectedDifficulty;
-			set
-			{
-				if (_selectedDifficulty != value)
-				{
-					_selectedDifficulty = value;
-					UpdateStarColors();
-				}
-			}
-		}
-		
-		public GameSettingsPage()
-		{
-			InitializeComponent();
-			BindingContext = this;
-		}
+		SelectedQuestionType = "Voorgestelde vragen";
+		SelectedDifficulty = "1";  
+		SelectedCategory = "First Round: Vragen om op een vriendelijke manier kennis te maken";
+		PhoneChoice = "Ja";
 
-		private void OnQuestionTypeChanged(object sender, EventArgs e)
-		{
-			var selectedQuestionType = QuestionTypePicker.SelectedItem?.ToString();
-
-			if (!string.IsNullOrEmpty(selectedQuestionType))
-			{
-				Console.WriteLine($"Geselecteerde soort vraag: {selectedQuestionType}");
-			}
-		}
-
-
-		private void OnSliderValueChanged(object sender, ValueChangedEventArgs e)
-		{
-			SelectedDifficulty = (int)e.NewValue;
-		}
-
-		private void UpdateStarColors()
-		{
-			Star1.TextColor = SelectedDifficulty >= 1 ? Colors.Gold : Colors.Gray;
-			Star2.TextColor = SelectedDifficulty >= 2 ? Colors.Gold : Colors.Gray;
-			Star3.TextColor = SelectedDifficulty >= 3 ? Colors.Gold : Colors.Gray;
-			Star4.TextColor = SelectedDifficulty >= 4 ? Colors.Gold : Colors.Gray;
-			Star5.TextColor = SelectedDifficulty >= 5 ? Colors.Gold : Colors.Gray;
-		}
-		private void OnCategoryChanged(object sender, CheckedChangedEventArgs e) { }
-		private void OnPhoneChoiseChanged(object sender, CheckedChangedEventArgs e) { }
-		
-		private async void OnVolgendeClicked(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new GameConfirmPage());
-		}
-
-
+		Star1Color = Colors.Yellow;
+		Star2Color = Colors.Gray;
+		Star3Color = Colors.Gray;
+		Star4Color = Colors.Gray;
+		Star5Color = Colors.Gray;
 	}
+
+
+	private void OnSliderValueChanged(object sender, ValueChangedEventArgs e)
+	{
+		int value = (int)e.NewValue;
+
+		Star1Color = value >= 1 ? Colors.Yellow : Colors.Gray;
+		Star2Color = value >= 2 ? Colors.Yellow : Colors.Gray;
+		Star3Color = value >= 3 ? Colors.Yellow : Colors.Gray;
+		Star4Color = value >= 4 ? Colors.Yellow : Colors.Gray;
+		Star5Color = value >= 5 ? Colors.Yellow : Colors.Gray;
+
+		OnPropertyChanged(nameof(Star1Color));
+		OnPropertyChanged(nameof(Star2Color));
+		OnPropertyChanged(nameof(Star3Color));
+		OnPropertyChanged(nameof(Star4Color));
+		OnPropertyChanged(nameof(Star5Color));
+	}
+
+
+	private void OnQuestionTypeChanged(object sender, EventArgs e)
+	{
+		SelectedQuestionType = QuestionTypePicker.SelectedItem?.ToString() ?? "Voorgestelde vragen";
+	}
+
+	private void OnCategoryChanged(object sender, CheckedChangedEventArgs e)
+	{
+		if (Category1RadioButton.IsChecked)
+			SelectedCategory = Category1RadioButton.Content.ToString();
+		else if (Category2RadioButton.IsChecked)
+			SelectedCategory = Category2RadioButton.Content.ToString();
+		else if (Category3RadioButton.IsChecked)
+			SelectedCategory = Category3RadioButton.Content.ToString();
+		else if (Category4RadioButton.IsChecked)
+			SelectedCategory = Category4RadioButton.Content.ToString();
+	}
+
+	private void OnPhoneChoiceChanged(object sender, CheckedChangedEventArgs e)
+	{
+		PhoneChoice = PhoneChoise.IsChecked ? "Ja" : "Nee";
+	}
+
+	private async void OnVolgendeClicked(object sender, EventArgs e)
+	{
+
+		SelectedQuestionType = QuestionTypePicker.SelectedItem?.ToString() ?? "Voorgestelde vragen"; 
+		SelectedDifficulty = DifficultySlider.Value.ToString("0"); 
+		PhoneChoice = PhoneChoise.IsChecked ? "Ja" : "Nee";  
+
+		await Navigation.PushAsync(new GameConfirmPage(
+			SelectedQuestionType,
+			SelectedDifficulty,
+			SelectedCategory,
+			PhoneChoice,
+			GeneratedCode));
+	}
+	public Color Star1Color { get; set; }
+	public Color Star2Color { get; set; }
+	public Color Star3Color { get; set; }
+	public Color Star4Color { get; set; }
+	public Color Star5Color { get; set; }
+
 }
-
-	
-

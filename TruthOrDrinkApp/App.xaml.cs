@@ -1,17 +1,24 @@
 ﻿using Microsoft.Maui.Controls;
-using TruthOrDrinkApp.Repositories;
+using TruthOrDrinkApp.Data;
+using System.IO;
 
 namespace TruthOrDrinkApp
 {
 	public partial class App : Application
 	{
-		public static UserRepository? UserRepo { get; private set; }
-		public App(UserRepository userRepo)
+		public static Constants Database { get; set; }
+		public App()
 		{
 			InitializeComponent();
-
-			UserRepo = userRepo;
-			MainPage = new AppShell();
+			InitializeDatabase();
+			MainPage = new NavigationPage(new HomePage());
 		}
+
+		private void InitializeDatabase()
+		{
+			string dbPath = Path.Combine(FileSystem.AppDataDirectory, "TruthOrDrink.db");
+			Database = new Constants(dbPath);
+		}
+
 	}
 }
