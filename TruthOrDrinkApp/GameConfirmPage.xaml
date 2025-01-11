@@ -61,6 +61,7 @@
             <Button Text="Start Game" 
                     HorizontalOptions="Center" 
                     Clicked="OnStartGameClicked" />
+                    
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -1,40 +1,24 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TruthOrDrinkApp.FriendlistPage"
-             Shell.FlyoutBehavior="Flyout"
-             Title="Vrienden">
-    <StackLayout Padding="20" Spacing="10">
+             x:Class="TruthOrDrinkApp.FriendlistPage">
+    <StackLayout Padding="10">
 
-        <SearchBar Placeholder="Zoek vrienden"
-                   TextChanged="OnSearchTextChanged"
-                   x:Name="SearchBar" />
+        <!-- Zoekbalk -->
+        <SearchBar Placeholder="Zoek een vriend"
+                   TextChanged="OnSearchTextChanged" />
 
-        <ListView x:Name="FriendsListView"
-                  ItemsSource="{Binding FilteredFriends}"
-                  HasUnevenRows="True"
-                  SelectionMode="None">
+        <!-- Vriendenlijst -->
+        <ListView ItemsSource="{Binding FilteredFriends}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="10">
-
-                            <Image Source="account_icon.png" 
-                                   WidthRequest="40" 
-                                   HeightRequest="40" 
-                                   Aspect="AspectFill"
-                                   VerticalOptions="Center"/>
-                            <Label Text="{Binding .}"
-                                   FontSize="18"
-                                   VerticalOptions="Center" />
-                        </StackLayout>
-                    </ViewCell> 
+                    <TextCell Text="{Binding .}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Text="Vriend toevoegen"
-                Clicked="OnAddFriendClicked"
-                HorizontalOptions="Center" />
+        <!-- Vriend toevoegen knop -->
+        <Button Text="Voeg vriend toe"
+                Clicked="OnAddFriendClicked" />
+
     </StackLayout>
 </ContentPage>

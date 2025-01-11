@@ -8,15 +8,18 @@ namespace TruthOrDrinkApp.MVVM.Models
 		[PrimaryKey, AutoIncrement]
 		public int Id { get; set; }
 
-		[Column("name"), Indexed, NotNull]
-		public string? Name { get; set; }
+		[Column("name"), Unique, NotNull]
+		public string Name { get; set; } = string.Empty;
 
-		[MaxLength(100)]
-		public string? Email { get; set; }
+		[Column("email"), Unique, NotNull]
+		public string Email { get; set; } = string.Empty;
+
+		[NotNull]
+		public string PasswordHash { get; set; } = string.Empty;
 
 		public int? Age { get; set; }
 
 		[Ignore]
-		public bool? OldEnoughToDrink => Age > 17 ? true : false;
+		public bool OldEnoughToDrink => Age >= 18;
 	}
 }

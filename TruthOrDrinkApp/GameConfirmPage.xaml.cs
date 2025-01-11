@@ -18,7 +18,8 @@ public partial class GameConfirmPage : ContentPage
 	private async void OnStartGameClicked(object sender, EventArgs e)
 	{
 		await DisplayAlert("Game starten", "Het spel wordt gestart!", "OK");
-		// Navigatie naar de spelpagina
+
+		await Navigation.PushAsync(new GamePage());
 		// await Navigation.PushAsync(new GamePage());
 	}
 

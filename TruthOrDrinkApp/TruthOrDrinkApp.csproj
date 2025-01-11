@@ -99,9 +99,6 @@
 	  <MauiXaml Update="InviteFriendsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="LoginSavePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -113,6 +110,12 @@
 	<ItemGroup>
 	  <Folder Include="MVVM\ViewModels\" />
 	  <Folder Include="MVVM\Views\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="LoginPage.xaml.cs">
+	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

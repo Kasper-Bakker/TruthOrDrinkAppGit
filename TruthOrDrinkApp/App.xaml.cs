@@ -1,24 +1,30 @@
-﻿using Microsoft.Maui.Controls;
-using TruthOrDrinkApp.Data;
-using System.IO;
+﻿using TruthOrDrinkApp.Data;
 
-namespace TruthOrDrinkApp
+namespace TruthOrDrinkApp;
+public partial class App : Application
 {
-	public partial class App : Application
+	public static Constants Database { get; set; }
+
+	public App()
 	{
-		public static Constants Database { get; set; }
-		public App()
-		{
-			InitializeComponent();
-			InitializeDatabase();
-			MainPage = new NavigationPage(new HomePage());
-		}
-
-		private void InitializeDatabase()
-		{
-			string dbPath = Path.Combine(FileSystem.AppDataDirectory, "TruthOrDrink.db");
-			Database = new Constants(dbPath);
-		}
-
+		InitializeComponent();
+		InitializeDatabase();
+		MainPage = new NavigationPage(new HomePage());
 	}
+
+	private async void InitializeDatabase()
+	{
+		try
+		{
+			string dbPath = Path.Combine(FileSystem.AppDataDirectory, "truthordrink.db");
+			Database = new Constants(dbPath);
+			await Database.InitializeDatabaseAsync();
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"Database initialisatie fout: {ex.Message}");
+			throw;
+		}
+	}
+
 }

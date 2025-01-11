@@ -6,10 +6,10 @@
         <Label Text="Truth Or Drink" FontSize="24" HorizontalOptions="Center" />
 
         <Label Text="Gebruikersnaam:" />
-        <Entry Placeholder="Gebruikersnaam" />
+        <Entry x:Name="UsernameEntry" Placeholder="Gebruikersnaam" />
 
         <Label Text="Wachtwoord:" />
-        <Entry Placeholder="Wachtwoord" IsPassword="True" />
+        <Entry x:Name="PasswordEntry" Placeholder="Wachtwoord" IsPassword="True" />
 
         <Label Text="Wachtwoord vergeten?" TextColor="Blue" HorizontalOptions="End" />
 
