@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TruthOrDrinkApp.InviteFriendsPage"
              Title="Vrienden uitnodigen">
-    
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
         <Label 
             Text="Scan deze QR-code om aan het spel deel te nemen:"
             FontSize="18"
@@ -17,5 +17,5 @@
 
 
     </VerticalStackLayout>
-
+    </ScrollView>
 </ContentPage>

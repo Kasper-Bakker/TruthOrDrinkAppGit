@@ -22,7 +22,7 @@ namespace TruthOrDrinkApp.Data
 			{
 				await _database.CreateTableAsync<User>();
 				await _database.CreateTableAsync<Friend>();
-				await _database.CreateTableAsync<Question>();  // Zorg ervoor dat Questions tabel bestaat
+				await _database.CreateTableAsync<Question>();  
 			}
 			catch (Exception ex)
 			{
@@ -48,7 +48,6 @@ namespace TruthOrDrinkApp.Data
 			}
 		}
 
-		// Voeg specifieke methode toe voor het ophalen van alle vragen
 		public Task<List<Question>> GetAllQuestionsAsync() => _database.Table<Question>().ToListAsync();
 	}
 }

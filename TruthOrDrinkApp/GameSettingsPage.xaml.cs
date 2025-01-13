@@ -70,6 +70,11 @@ public partial class GameSettingsPage : ContentPage
 		PhoneChoice = PhoneChoise.IsChecked ? "Ja" : "Nee";
 	}
 
+	private async void OnInviteFriendsClicked(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new InviteFriendsPage());
+	}
+
 	private async void OnVolgendeClicked(object sender, EventArgs e)
 	{
 		var selectedSettings = new
@@ -80,13 +85,22 @@ public partial class GameSettingsPage : ContentPage
 			PhoneChoice
 		};
 
-		await Navigation.PushAsync(new GamePage(selectedSettings));
+		await Navigation.PushAsync(new GamePage(selectedSettings.SelectedQuestionType));
 	}
 
+	private string GenerateRandomCode()
+	{
+		Random random = new Random();
+		int part1 = random.Next(100, 1000); 
+		int part2 = random.Next(100, 1000);
+		return $"C-{part1}-{part2}";
+	}
 
-
-
-
+	private async void OnGenerateCodeClicked(object sender, EventArgs e)
+	{
+		string randomCode = GenerateRandomCode(); 
+		RandomCodeLabel.Text = $"Code: {randomCode}"; 
+	}
 
 	public Color Star1Color { get; set; }
 	public Color Star2Color { get; set; }

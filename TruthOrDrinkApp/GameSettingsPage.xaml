@@ -81,8 +81,27 @@
              CheckedChanged="OnPhoneChoiceChanged" />
 
             </StackLayout>
+            
+            <Button Text="Vrienden uitnodigen" 
+                    HorizontalOptions="EndAndExpand" 
+                    Clicked="OnInviteFriendsClicked" />
 
-            <Button Text="Spelgegevens opslaan" 
+            <Label Text="Spelers kunnen eventueel vragen toevoegen met deze code:" 
+              FontSize="16" 
+              HorizontalTextAlignment="Start" />
+
+            <Button Text="Genereer Code"
+               Clicked="OnGenerateCodeClicked"
+               HorizontalOptions="Center"
+               VerticalOptions="Start" />
+
+            <Label x:Name="RandomCodeLabel"
+              Text="Code wordt hier weergegeven..."
+              FontSize="18"
+              HorizontalOptions="Center"
+              VerticalOptions="End" />
+
+            <Button Text="Spel starten" 
                     HorizontalOptions="Center"
                     Clicked="OnVolgendeClicked" />
 
