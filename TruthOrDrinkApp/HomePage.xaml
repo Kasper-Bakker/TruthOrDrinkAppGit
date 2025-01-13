@@ -16,6 +16,9 @@
         <Button Text="Vragen toevoegen" 
                 HorizontalOptions="Center"
                 Clicked="OnVragenToevoegenClicked" />
+        <Button Text="Vrienden" 
+                HorizontalOptions="Center"
+                Clicked="OnVriendenClicked" />
         <Button Text="Start game" 
                 HorizontalOptions="Center"
                 Clicked="OnStartGameClicked" />

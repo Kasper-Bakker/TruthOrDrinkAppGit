@@ -1,51 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="TruthOrDrinkApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:TruthOrDrinkApp"
-    Shell.FlyoutBehavior="Flyout"
-    Title="TruthOrDrinkApp">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Shell.FlyoutHeader>
-        <StackLayout  Padding="20">
-            <Label Text="Welcome!" FontSize="24" HorizontalOptions="Center" />
-        </StackLayout>
-    </Shell.FlyoutHeader>
-
-    <FlyoutItem Title="Home" Icon="home_icon.png">
-        <ShellContent
-            Title="Home"
-            ContentTemplate="{DataTemplate local:HomePage}"
-            Route="HomePage" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Account" Icon="account_icon.png">
-        <ShellContent
-            Title="Account"
-            ContentTemplate="{DataTemplate local:AccountPage}"
-            Route="AccountPage" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Vrienden" Icon="friends_icon.png">
-        <ShellContent
-            Title="Vrienden"
-            ContentTemplate="{DataTemplate local:FriendlistPage}"
-            Route="FriendlistPage" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Instellingen" Icon="settings_icon.png">
-        <ShellContent
-            Title="Instellingen"  
-            ContentTemplate="{DataTemplate local:SettingsPage}"
-            Route="SettingsPage" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Info" Icon="about_icon.png">
-        <ShellContent
-            Title="Info"
-            ContentTemplate="{DataTemplate local:AboutPage}"
-            Route="AboutPage" />
-    </FlyoutItem>
-
+    <ShellContent/>
 </Shell>

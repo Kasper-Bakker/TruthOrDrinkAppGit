@@ -9,7 +9,8 @@ public partial class App : Application
 	{
 		InitializeComponent();
 		InitializeDatabase();
-		MainPage = new NavigationPage(new HomePage());
+
+		MainPage = new NavigationPage(new LoginPage());
 	}
 
 	private async void InitializeDatabase()

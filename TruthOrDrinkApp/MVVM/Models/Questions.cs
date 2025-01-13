@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLite;
+﻿using SQLite;
+using System;
 
 namespace TruthOrDrinkApp.MVVM.Models
 {
@@ -14,13 +10,13 @@ namespace TruthOrDrinkApp.MVVM.Models
 		public int Id { get; set; }
 
 		[Column("question_text"), NotNull]
-		public string? QuestionText { get; set; }
+		public string QuestionText { get; set; }
 
 		[Column("category")]
-		public string? Category { get; set; }
+		public string Category { get; set; }
 
 		[Column("difficulty")]
-		public string? Difficulty { get; set; }
+		public int Difficulty { get; set; }  
 
 		[Column("is_personalized")]
 		public bool IsPersonalized { get; set; }

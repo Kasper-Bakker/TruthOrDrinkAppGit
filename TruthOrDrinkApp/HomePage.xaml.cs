@@ -19,6 +19,12 @@ namespace TruthOrDrinkApp
 			await Navigation.PushAsync(new AddQuestionsPage());
 		}
 
+		private async void OnVriendenClicked(object sender, EventArgs e)
+		{
+
+			await Navigation.PushAsync(new FriendlistPage());
+		}
+
 		private async void OnStartGameClicked(object sender, EventArgs e)
 		{
 

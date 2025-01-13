@@ -18,6 +18,7 @@ namespace TruthOrDrinkApp
 			_database = new Constants(dbPath);
 		}
 
+		// In RegisterPage
 		private async void OnAccountAanmakenClicked(object sender, EventArgs e)
 		{
 			string username = UsernameEntry.Text?.Trim();
@@ -50,7 +51,7 @@ namespace TruthOrDrinkApp
 				return;
 			}
 
-			var existingUser = await _database.FindAsync<User>(u => u.Name == username || u.Email == email);
+			var existingUser = await App.Database.FindAsync<User>(u => u.Name == username || u.Email == email);
 			if (existingUser != null)
 			{
 				await DisplayAlert("Fout", "Gebruikersnaam of e-mailadres is al geregistreerd.", "OK");
@@ -67,10 +68,11 @@ namespace TruthOrDrinkApp
 				Age = age
 			};
 
-			await _database.AddAsync(newUser);
+			await App.Database.AddAsync(newUser);
 			await DisplayAlert("Succes", $"Welkom, {username}! Je kunt nu inloggen.", "OK");
 			await Navigation.PopAsync();
 		}
+
 
 		private string HashPassword(string password)
 		{

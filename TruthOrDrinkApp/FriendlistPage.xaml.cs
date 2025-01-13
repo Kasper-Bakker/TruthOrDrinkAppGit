@@ -8,26 +8,21 @@ namespace TruthOrDrinkApp
 {
 	public partial class FriendlistPage : ContentPage
 	{
-		// Lijsten voor vrienden
 		private ObservableCollection<Friend> Friends { get; set; }
-		public ObservableCollection<string> FilteredFriends { get; set; } // Alleen namen van vrienden
+		public ObservableCollection<string> FilteredFriends { get; set; } 
 
 		public FriendlistPage()
 		{
 			InitializeComponent();
 
-			// Initialiseer de lijsten
 			Friends = new ObservableCollection<Friend>();
 			FilteredFriends = new ObservableCollection<string>();
 
-			// Stel de BindingContext in
 			BindingContext = this;
 
-			// Laad vrienden uit de database
 			LoadFriends();
 		}
 
-		// Vrienden laden uit de database
 		private async void LoadFriends()
 		{
 			try
@@ -38,7 +33,6 @@ namespace TruthOrDrinkApp
 
 				foreach (var friend in dbFriends)
 				{
-					// Controleer op null-waarden en gebruik een standaardwaarde indien nodig
 					friend.FriendName = friend.FriendName ?? "Onbekende Vriend";
 					Friends.Add(friend);
 					FilteredFriends.Add(friend.FriendName);
@@ -50,7 +44,6 @@ namespace TruthOrDrinkApp
 			}
 		}
 
-		// Zoekfunctie
 		private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
 		{
 			var searchText = e.NewTextValue?.ToLower() ?? string.Empty;
@@ -58,32 +51,27 @@ namespace TruthOrDrinkApp
 
 			foreach (var friend in Friends.Where(f => f.FriendName.ToLower().Contains(searchText)))
 			{
-				FilteredFriends.Add(friend.FriendName); // Alleen namen weergeven
+				FilteredFriends.Add(friend.FriendName);
 			}
 		}
 
-		// Vriend toevoegen
 		private async void OnAddFriendClicked(object sender, EventArgs e)
 		{
 			try
 			{
-				// Open een prompt om een nieuwe vriend toe te voegen
 				string friendName = await DisplayPromptAsync("Voeg vriend toe", "Voer naam van vriend in:");
 
 				if (!string.IsNullOrWhiteSpace(friendName))
 				{
-					// Maak een nieuwe vriend aan
 					var newFriend = new Friend
 					{
-						UserId = 1, // Dit moet de ingelogde gebruiker-ID zijn
+						UserId = 1, 
 						FriendName = friendName.Trim(),
 						CreatedAt = DateTime.Now
 					};
 
-					// Voeg de vriend toe aan de database
 					await App.Database.AddAsync(newFriend);
 
-					// Update de ObservableCollections
 					Friends.Add(newFriend);
 					FilteredFriends.Add(newFriend.FriendName);
 				}

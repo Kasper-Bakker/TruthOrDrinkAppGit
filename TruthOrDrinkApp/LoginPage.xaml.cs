@@ -18,6 +18,7 @@ namespace TruthOrDrinkApp
 			_database = new Constants(dbPath);
 		}
 
+		// In LoginPage
 		private async void OnLoginClicked(object sender, EventArgs e)
 		{
 			string username = UsernameEntry.Text?.Trim();
@@ -29,20 +30,19 @@ namespace TruthOrDrinkApp
 				return;
 			}
 
-			// Gebruik FindAsync in plaats van Find
-			var user = await _database.FindAsync<User>(u => u.Name == username);
+			var user = await App.Database.FindAsync<User>(u => u.Name == username);
 
 			if (user != null && VerifyPassword(password, user.PasswordHash))
 			{
 				await DisplayAlert("Succes", $"Welkom terug, {user.Name}!", "OK");
-				await Navigation.PushAsync(new HomePage());
+
+				Application.Current.MainPage = new NavigationPage(new HomePage());  
 			}
 			else
 			{
 				await DisplayAlert("Fout", "Gebruiker niet gevonden of wachtwoord onjuist.", "OK");
 			}
 		}
-
 
 		private bool VerifyPassword(string password, string storedHash)
 		{
@@ -59,7 +59,6 @@ namespace TruthOrDrinkApp
 			}
 		}
 
-		// Methode om naar de registratiepagina te navigeren
 		private async void OnRegisterClicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new RegisterPage());

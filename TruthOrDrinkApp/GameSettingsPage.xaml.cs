@@ -1,19 +1,26 @@
+using TruthOrDrinkApp.Services;
+
 namespace TruthOrDrinkApp;
+
 public partial class GameSettingsPage : ContentPage
 {
+	private readonly TruthOrDrinkApiService _apiService;
+
 	public string SelectedQuestionType { get; set; }
 	public string SelectedDifficulty { get; set; }
 	public string SelectedCategory { get; set; }
 	public string PhoneChoice { get; set; }
-	public string GeneratedCode { get; set; } 
+	public string GeneratedCode { get; set; }
 
 	public GameSettingsPage()
 	{
 		InitializeComponent();
 		BindingContext = this;
 
+		_apiService = new TruthOrDrinkApiService();
+
 		SelectedQuestionType = "Voorgestelde vragen";
-		SelectedDifficulty = "1";  
+		SelectedDifficulty = "1";
 		SelectedCategory = "First Round: Vragen om op een vriendelijke manier kennis te maken";
 		PhoneChoice = "Ja";
 
@@ -23,7 +30,6 @@ public partial class GameSettingsPage : ContentPage
 		Star4Color = Colors.Gray;
 		Star5Color = Colors.Gray;
 	}
-
 
 	private void OnSliderValueChanged(object sender, ValueChangedEventArgs e)
 	{
@@ -41,7 +47,6 @@ public partial class GameSettingsPage : ContentPage
 		OnPropertyChanged(nameof(Star4Color));
 		OnPropertyChanged(nameof(Star5Color));
 	}
-
 
 	private void OnQuestionTypeChanged(object sender, EventArgs e)
 	{
@@ -67,22 +72,25 @@ public partial class GameSettingsPage : ContentPage
 
 	private async void OnVolgendeClicked(object sender, EventArgs e)
 	{
-
-		SelectedQuestionType = QuestionTypePicker.SelectedItem?.ToString() ?? "Voorgestelde vragen"; 
-		SelectedDifficulty = DifficultySlider.Value.ToString("0"); 
-		PhoneChoice = PhoneChoise.IsChecked ? "Ja" : "Nee";  
-
-		await Navigation.PushAsync(new GameConfirmPage(
+		var selectedSettings = new
+		{
 			SelectedQuestionType,
 			SelectedDifficulty,
 			SelectedCategory,
-			PhoneChoice,
-			GeneratedCode));
+			PhoneChoice
+		};
+
+		await Navigation.PushAsync(new GamePage(selectedSettings));
 	}
+
+
+
+
+
+
 	public Color Star1Color { get; set; }
 	public Color Star2Color { get; set; }
 	public Color Star3Color { get; set; }
 	public Color Star4Color { get; set; }
 	public Color Star5Color { get; set; }
-
 }

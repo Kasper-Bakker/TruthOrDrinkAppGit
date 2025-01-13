@@ -2,17 +2,26 @@ namespace TruthOrDrinkApp;
 
 public partial class GameConfirmPage : ContentPage
 {
-	public GameConfirmPage(string questionType, string difficulty, string category, string phoneChoice, string generatedCode)
+	public List<string> Questions { get; set; }
+	public string SelectedQuestionType { get; private set; }
+
+	public GameConfirmPage(string questionType, string difficulty, string category, string phoneChoice, string generatedCode, List<string> questions)
 	{
 		InitializeComponent();
 		BindingContext = this;
 
-		// Zet de labels met de ontvangen waarden
+		Questions = questions;
+
 		QuestionTypeLabel.Text = $"Soort vragen: {questionType}";
 		DifficultyLabel.Text = $"Moeilijkheidsgraad: {difficulty}";
 		CategoryLabel.Text = $"Categorie: {category}";
 		PhoneChoiceLabel.Text = $"Spelen op telefoons van alle spelers: {phoneChoice}";
 		RandomCodeLabel.Text = $"Code: {generatedCode}";
+
+		if (Questions == null || !Questions.Any())
+		{
+			DisplayAlert("Fout", "Geen vragen beschikbaar voor deze selectie.", "OK");
+		}
 	}
 
 	private async void OnStartGameClicked(object sender, EventArgs e)
@@ -20,8 +29,8 @@ public partial class GameConfirmPage : ContentPage
 		await DisplayAlert("Game starten", "Het spel wordt gestart!", "OK");
 
 		await Navigation.PushAsync(new GamePage());
-		// await Navigation.PushAsync(new GamePage());
 	}
+
 
 	private async void OnInviteFriendsClicked(object sender, EventArgs e)
 	{
@@ -30,7 +39,6 @@ public partial class GameConfirmPage : ContentPage
 
 	private async void OnGenerateCodeClicked(object sender, EventArgs e)
 	{
-		// Genereer een nieuwe code
 		string randomCode = GenerateRandomCode();
 		RandomCodeLabel.Text = $"Code: {randomCode}";
 	}
