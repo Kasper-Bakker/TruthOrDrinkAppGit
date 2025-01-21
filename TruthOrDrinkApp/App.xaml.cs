@@ -1,4 +1,5 @@
-﻿using TruthOrDrinkApp.Data;
+﻿using System.Diagnostics;
+using TruthOrDrinkApp.Data;
 
 namespace TruthOrDrinkApp;
 public partial class App : Application
@@ -20,6 +21,7 @@ public partial class App : Application
 			string dbPath = Path.Combine(FileSystem.AppDataDirectory, "truthordrink.db");
 			Database = new Constants(dbPath);
 			await Database.InitializeDatabaseAsync();
+			Debug.WriteLine(dbPath);
 		}
 		catch (Exception ex)
 		{
